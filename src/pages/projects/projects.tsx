@@ -57,17 +57,19 @@ export const Projects: React.FC = () => {
                 className="swiper_container"
             >
                 {datas?.map((item:any) => {
+                    console.log(item.path.slice(-3))
                     return (
-                        <SwiperSlide  >
+                        <SwiperSlide>
+                           {item.path.slice(-3) == "mp4"?
                             <ReactPlayer
                                 muted={true}
                                 playing
                                 url={Url + `/${item?.path}`}
                                 width="100%"
                                 height="360"
-                                
                                 controls={false}
-                            />
+                            />:<img src={Url + `/${item?.path}`} />
+                            }
                         </SwiperSlide>
                     )
                 })}
