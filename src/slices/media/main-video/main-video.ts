@@ -7,8 +7,8 @@ import { mainVideo } from '../../../services/media/main-video';
 const initialState: IMainVideo = {
     isLoading: false,
     isSuccess: false,
-    userData: [],
-    userError: null
+    videoData: [],
+    videoError: null
 }
 
 export const mainVideoThunk = createAsyncThunk(
@@ -36,11 +36,11 @@ const mainVideoSlice = createSlice({
                 console.log(action.payload)
                 state.isLoading = false;
                 state.isSuccess = true;
-                state.userData = action.payload
+                state.videoData = action.payload
             })
             .addCase(mainVideoThunk.rejected, (state: IMainVideo, action: AnyAction) => {
                 state.isSuccess = false;
-                state.userError= action?.error?.message
+                state.videoError= action?.error?.message
 
             })
     },

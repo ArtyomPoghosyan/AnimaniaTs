@@ -1,8 +1,8 @@
 export interface IMainVideo { 
     isLoading: boolean,
     isSuccess: boolean,
-    userData: [],
-    userError:null
+    videoData: [],
+    videoError:null
 }
 
 export interface IVideo {

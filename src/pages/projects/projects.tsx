@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import projectStyle from "../projects/project-style.module.css"
 import 'swiper/css';
@@ -6,60 +6,67 @@ import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { EffectCoverflow, Pagination, Navigation } from 'swiper';
+import { useSelector } from 'react-redux';
+import { IState } from '../../models/common/common';
+import { useAppDispatch } from '../../hooks';
+import { mainVideoThunk } from '../../slices/media/main-video/main-video';
+import { Carousel } from 'react-bootstrap';
+import ReactPlayer from 'react-player';
+import "bootstrap/dist/css/bootstrap.css"
+import { IVideo } from '../../models/media/media';
+import { Url } from '../../services/base-url';
+// import pic1 from "../../assets/images/RIVER.jpg";
+// import pic2 from "../../assets/images/staff.jpg";
+// import pic3 from "../../assets/images/mountain.jpg";
+// import pic4 from "../../assets/images/forest.jpg";
 
-import pic1 from "../../assets/images/RIVER.jpg";
-import pic2 from "../../assets/images/staff.jpg";
-import pic3 from "../../assets/images/mountain.jpg";
-import pic4 from "../../assets/images/forest.jpg";
+// const initialProjectPictures = [
+//     { id: 1, image: pic1 },
+//     { id: 2, image: pic2 },
+//     { id: 3, image: pic3 },
+//     { id: 4, image: pic4 }
 
-const initialProjectPictures = [
-    { id: 1, image: pic1 },
-    { id: 2, image: pic2 },
-    { id: 3, image: pic3 },
-    { id: 4, image: pic4 }
+// ]
 
-]
+export const Projects: React.FC = () => {
 
-export const Projects:React.FC = () => {
+    const { videoData } = useSelector((state: IState) => state.mainVideo);
+    const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        dispatch(mainVideoThunk())
+    }, [])
+
+    console.log(videoData)
     return (
         <div id="project">
             <h1 className="heading" style={{ color: "#FFD400" }}>Our Projects</h1>
-            <Swiper style={{ width: "100%", height: "800px", zIndex: "0" }}
-                effect={'coverflow'}
-                grabCursor={true}
-                centeredSlides={true}
-                loop={true}
-                slidesPerView={'auto'}
-                coverflowEffect={{
-                    rotate: 0,
-                    stretch: 0,
-                    depth: 250,
-                    modifier: 2.5,
-                }}
-                pagination={{ el: '.swiper-pagination', clickable: true }}
-                navigation={{
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                }}
-                modules={[EffectCoverflow, Pagination, Navigation]}
-                className="swiper_container"
-            >
-                {initialProjectPictures.map((item, index) => {
-                    return (
-                        <SwiperSlide  >
-                            <img className={projectStyle.image} key={index} src={item.image} />
-                        </SwiperSlide>
-                    )
-                })}
+            <Carousel>
+                {videoData?.data?.map((videoId: IVideo, index: number) => (
+                    <Carousel.Item key={index} id="main_video" className="each-slide">
+                        <ReactPlayer
+                            muted={true}
+                            playing
+                            url={Url + `/${videoId.path}`}
+                            width="400"
+                            height="200"
+                            controls={false}
+                        />
 
-                <div className="slider-controler">
-                    <div className="swiper-button-prev slider-arrow">
-                    </div>
-                    <div className="swiper-button-next slider-arrow">
-                    </div>
-                    <div className="swiper-pagination"></div>
-                </div>
-            </Swiper>
+                    </Carousel.Item>
+                    // <div id="main_video" className="each-slide" key={index}>
+                    //     <ReactPlayer
+                    //         muted={true}
+                    //         playing
+                    //         url={Url + `/${videoId.path}`}
+                    //         width="640"
+                    //         height="360"
+                    //         controls={false}
+                    //     />
+                    // </div>
+                ))
+                }
+            </Carousel>
         </div>
     )
 }
