@@ -61,14 +61,17 @@ export const Projects: React.FC = () => {
                     return (
                         <SwiperSlide>
                            {item.path.slice(-3) == "mp4"?
-                            <ReactPlayer
-                                muted={true}
-                                playing
-                                url={Url + `/${item?.path}`}
-                                width="100%"
-                                height="360"
-                                controls={false}
-                            />:<img src={Url + `/${item?.path}`} />
+                           <div style={{display:"flex",justifyContent:"center",alignItems:"center",width:"100%"}}>
+                               <ReactPlayer
+                                   muted={true}
+                                   playing
+                                   url={Url + `/${item?.path}`}
+                                   width="90%"
+                                   height="360"
+                                   controls={false}
+                               />
+                           </div>
+                            :<img className={projectStyle.image} src={Url + `/${item?.path}`} />
                             }
                         </SwiperSlide>
                     )
