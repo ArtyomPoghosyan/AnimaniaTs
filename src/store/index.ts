@@ -1,11 +1,14 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 
-import mainVideo from "../slices/media/main-video/main-video"
+// import mainVideo from "../slices/media/slider"
 import user from "../slices/user/all-user";
+import slider from "../slices/media/slider";
+import mainVideo from "../slices/media/main-video";
 
 export const Store = configureStore({
     reducer: {
         user: user,
+        slider:slider,
         mainVideo:mainVideo
     }
 })

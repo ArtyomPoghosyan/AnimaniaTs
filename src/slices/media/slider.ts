@@ -1,21 +1,21 @@
 import { AnyAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { IMainVideo } from "../../../models/media/media";
-import { mainVideo } from '../../../services/media/main-video';
+import { IInitialState } from "../../models/media/media";
+import { slider } from '../../services/media/main-video';
 
-const initialState: IMainVideo = {
+const initialState: IInitialState = {
     isLoading: false,
     isSuccess: false,
     videoData: [],
     videoError: null
 }
 
-export const mainVideoThunk = createAsyncThunk(
-    "mainVideo/mainVideoThunk",
+export const sliderThunk = createAsyncThunk(
+    "mainVideo/sliderThunk",
     async () => {
         try {
-            const response = await mainVideo();
+            const response = await slider();
             return Promise.resolve(response.data)
         } catch (error) {
             return Promise.reject(error)
@@ -23,22 +23,22 @@ export const mainVideoThunk = createAsyncThunk(
     }
 )
 
-const mainVideoSlice = createSlice({
+const sliderSlice = createSlice({
     name: "mainVideo",
     initialState,
     reducers: {},
     extraReducers(builder) {
         builder
-            .addCase(mainVideoThunk.pending, (state: IMainVideo) => {
+            .addCase(sliderThunk.pending, (state: IInitialState) => {
                 state.isLoading = true
             })
-            .addCase(mainVideoThunk.fulfilled, (state: IMainVideo, action: AnyAction) => {
+            .addCase(sliderThunk.fulfilled, (state: IInitialState, action: AnyAction) => {
                 console.log(action.payload)
                 state.isLoading = false;
                 state.isSuccess = true;
                 state.videoData = action.payload
             })
-            .addCase(mainVideoThunk.rejected, (state: IMainVideo, action: AnyAction) => {
+            .addCase(sliderThunk.rejected, (state: IInitialState, action: AnyAction) => {
                 state.isSuccess = false;
                 state.videoError= action?.error?.message
 
@@ -46,4 +46,4 @@ const mainVideoSlice = createSlice({
     },
 })
 
-export default mainVideoSlice.reducer;
+export default sliderSlice.reducer;

@@ -1,9 +1,3 @@
-import img1 from "../../assets/images/image 25.png";
-import img2 from "../../assets/images/image 26.png";
-import img3 from "../../assets/images/image 27.png";
-import img4 from "../../assets/images/image 28.png";
-import leadAnimator from "../../assets/images/Lead Animator.png";
-import ArturGevorgyan from "../../assets/images/Artur Gevorgyan.png";
 
 import React, { useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -19,8 +13,8 @@ import { IState } from "../../models/common/common";
 SwiperCore.use([Navigation, Pagination, EffectCoverflow]);
 
 export const Team: React.FC = () => {
-    const baseUrl="http://116.203.128.127:6543";
-    const {isLoading,isSuccess,userData,userError}= useAppSelector((state:any)=> state.user)
+    const baseUrl = process.env.REACT_APP_BASE_URL;
+    const { isLoading, isSuccess, userData, userError } = useAppSelector((state: any) => state.user)
     const dispatch = useAppDispatch();
 
     useEffect(() => {
@@ -29,7 +23,7 @@ export const Team: React.FC = () => {
 
     return (
         <div className="App" id="team">
-            <h1 className="heading" style={{ marginTop: "100px", color: "#FFD400" }}>Our Family</h1>
+            {/* <h1 className="heading" style={{ marginTop: "100px", color: "#FFD400" }}>Our Family</h1>
             <Swiper
                 initialSlide={1}
                 loopedSlides={3}
@@ -55,13 +49,13 @@ export const Team: React.FC = () => {
                                     <img key={index} src={baseUrl+`/${item?.avatar}`} />
                                     <p>{item.firstName}</p>
                                     <p>{item.lastName}</p>
-                                    <p>{item.position}</p>
+                                    <sp>{item.position}</p>
                                 </div>
                             </SwiperSlide>
                         )
                     })
                 }
-            </Swiper>
+            </Swiper> */}
         </div>
     );
 }

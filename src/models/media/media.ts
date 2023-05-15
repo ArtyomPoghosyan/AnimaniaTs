@@ -1,4 +1,4 @@
-export interface IMainVideo { 
+export interface IInitialState { 
     isLoading: boolean,
     isSuccess: boolean,
     videoData: [],
