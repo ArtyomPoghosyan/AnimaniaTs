@@ -36,3 +36,109 @@
     transform: rotate(360deg);
   }
 }
+
+.basic_container_support {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(129.9deg, rgba(71, 255, 159, 0.14) 0.01%, rgba(217, 217, 217, 0) 67.4%);
+}
+
+.main_container {
+
+  display: flex;
+}
+
+.support_left_side_container {
+  display: flex;
+  position: relative;
+  background: linear-gradient(215.9deg, rgba(71, 255, 159, 0.14) 0.01%, rgba(217, 217, 217, 0) 0%);
+}
+
+.support_pic {
+  padding-bottom: 70px;
+}
+
+.support_right_side_container {
+  padding-top: 50px;
+  margin-left: 265px;
+}
+
+.support_title {
+  font-family: Inter;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 35px;
+  letter-spacing: -0.40799999237060547px;
+  margin-bottom: 25px;
+
+}
+
+.support_form_container {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+}
+
+input {
+  height: 45px;
+  margin-bottom: 25px;
+  border: 1px solid #d9d9d9;
+  padding-left: 15px;
+  border-radius: 10px;
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+input:focus-visible {
+  outline: none;
+  border: 1px solid rgba(4, 179, 88, 0.5);
+}
+
+textarea {
+  height: 155px;
+  margin-bottom: 25px;
+  border: 1px solid #d9d9d9;
+  padding: 15px 15px;
+  border-radius: 10px;
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: left;
+  resize: none;
+}
+
+textarea:focus-visible {
+  outline: none;
+  border: 1px solid rgba(4, 179, 88, 0.5);
+}
+
+.btn_request {
+  display: flex;
+  justify-content: center;
+  background-color: rgba(4, 179, 88, 1);
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: left;
+  padding: 13px 0 13px 0;
+  border: none;
+  border-radius: 10px;
+  margin-top: 20px;
+  color: rgba(255, 255, 255, 1);
+}
+
+.btn_request:hover {
+  color: rgba(4, 179, 88, 1);
+  background-color: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(4, 179, 88, 1);
+  cursor: pointer;
+}

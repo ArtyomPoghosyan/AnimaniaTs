@@ -14,9 +14,10 @@ import ReactPlayer from 'react-player';
 import { IVideo } from '../../models/media/media';
 import { Url } from '../../services/base-url';
 import { Slider } from '../../components/slider/slider';
+import { t } from 'i18next';
 
 
-export const Projects: React.FC = () => {
+export const Projects: React.FC = ({language}:any) => {
 
     const { videoData } = useSelector((state: IState) => state.slider);
     const dispatch = useAppDispatch();
@@ -33,7 +34,7 @@ export const Projects: React.FC = () => {
     }, [videoData.length])
     return (
         <div id="project">
-            <h1 className="heading" style={{ color: "#FFD400" }}>Our Projects</h1>
+            <h1 className="heading" style={{ color: "#FFD400" }}>{t("COMMON.PROJECTS")}</h1>
             {datas ? <Slider datas={datas} width={100} height={700}/> : null}
         </div>
     )

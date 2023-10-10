@@ -19,6 +19,14 @@
     background-color: transparent;
     border: none;
 }
+.lang_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.lang_icon{
+    margin-right: 5px;
+}
 
 .footer {
     display: flex;
@@ -91,5 +99,5 @@
 .menu_item_container{
     display: flex;
     margin-left: 70px;
-    width: 32%;
+    width: 60%;
 }

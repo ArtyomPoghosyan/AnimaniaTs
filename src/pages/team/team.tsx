@@ -12,7 +12,7 @@ import { IState } from "../../models/common/common";
 
 SwiperCore.use([Navigation, Pagination, EffectCoverflow]);
 
-export const Team: React.FC = () => {
+export const Team: React.FC = ({language}:any) => {
     const baseUrl = process.env.REACT_APP_BASE_URL;
     const { isLoading, isSuccess, userData, userError } = useAppSelector((state: any) => state.user)
     const dispatch = useAppDispatch();

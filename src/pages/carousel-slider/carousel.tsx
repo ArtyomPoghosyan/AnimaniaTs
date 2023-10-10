@@ -12,7 +12,7 @@ import { Url } from '../../services/base-url';
 
 import ReactPlayer from 'react-player';
 
-export const CarouselSlider: React.FC = () => {
+export const CarouselSlider: React.FC = ({language}:any) => {
 
     const { videoData } = useSelector((state: IState) => state.mainVideo);
     const dispatch = useAppDispatch();
