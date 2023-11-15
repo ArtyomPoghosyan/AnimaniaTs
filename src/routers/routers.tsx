@@ -1,6 +1,8 @@
 import { Route, Routes } from "react-router-dom"
-import { Layout } from "../pages/layout"
+
 import { Main } from "../pages/main"
+import { Layout } from "../components/layout"
+
 
 export const Routers: React.FC = () => {
     return (

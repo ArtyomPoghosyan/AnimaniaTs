@@ -1,4 +1,11 @@
-.image{
+.image {
     width: 80%;
     height: 100%;
- } 
+}
+
+.player_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%
+}

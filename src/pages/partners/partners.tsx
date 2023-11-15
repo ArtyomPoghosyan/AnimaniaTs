@@ -1,28 +1,31 @@
 import partnersStyle from "../partners/partners-style.module.css";
-import logo1 from "../../assets/images/logo1.jpg";
-import logo3 from "../../assets/images/logo3.png";
-import logo4 from "../../assets/images/logo4.png";
 import { t } from "i18next";
-export const Partners:React.FC = ({language}:any) => {
+import { useAppDispatch } from "../../hooks";
+import { useSelector } from "react-redux";
+import { IPartnert, IState } from "../../models/common/common";
+import { useEffect } from "react";
+import { partnersThunk } from "../../services/store/slices/partners";
+import { Url } from "../../services/base-url";
+
+export const Partners:React.FC = () => {
+    const { data } = useSelector((state: IState) => state.partners);
+    const dispatch = useAppDispatch();
+    
+    useEffect(() => {
+        dispatch(partnersThunk())
+    }, []);
+
+
     return (
         <div className={partnersStyle.partners_container} id="partners">
-            <h2 style={{color:"#FFD400"}}>{t("COMMON.OUR_PARTNER")}</h2>
+            <h2 className={partnersStyle.partner_title}>{t("COMMON.OUR_PARTNER")}</h2>
             <div className={partnersStyle.image_container}>
-                <img src={logo3} />
-                <img src={logo4} />
-                <img src={logo3} />
-                <img src={logo4} />
-                <img src={logo3} />
-                <img src={logo4} />
-                <img src={logo3} />
-                <img src={logo4} />
-                <img src={logo3} />
-                <img src={logo4} />
-                <img src={logo3} />
-                <img src={logo4} />
+                {
+                    data?.data?.map((item:IPartnert) =>(
+                        <img src={Url + `/${item?.path}`}/>
+                    ))
+                }
             </div>
-
-
         </div>
     )
 }

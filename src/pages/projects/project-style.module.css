@@ -6,3 +6,8 @@
 video {
     width: 96%;
 }
+
+.title {
+    color: #FFD400;
+    font-size: 30px;
+}

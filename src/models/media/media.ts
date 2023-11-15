@@ -1,8 +1,8 @@
 export interface IInitialState { 
     isLoading: boolean,
     isSuccess: boolean,
-    videoData: [],
-    videoError:null
+    data: [],
+    error:null
 }
 
 export interface IVideo {

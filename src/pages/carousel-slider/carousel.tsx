@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import 'react-slideshow-image/dist/styles.css';
 
-import { mainVideoThunk } from '../../slices/media/main-video';
+import { mainVideoThunk } from '../../services/store/slices/media/main-video';
 
 import { useAppDispatch, } from '../../hooks';
 import { IState } from '../../models/common/common';
@@ -12,14 +12,14 @@ import { Url } from '../../services/base-url';
 
 import ReactPlayer from 'react-player';
 
-export const CarouselSlider: React.FC = ({language}:any) => {
-
-    const { videoData } = useSelector((state: IState) => state.mainVideo);
+export const CarouselSlider: React.FC = () => {
+    const { data } = useSelector((state: IState) => state.mainVideo);
     const dispatch = useAppDispatch();
 
     useEffect(() => {
         dispatch(mainVideoThunk())
     }, [])
+
 
     return (
         <div>
@@ -27,7 +27,7 @@ export const CarouselSlider: React.FC = ({language}:any) => {
                 <ReactPlayer
                     muted={true}
                     playing
-                    url={Url + `/${videoData?.data?.path}`}
+                    url={Url + `/${data?.data?.path}`}
                     width="640"
                     height="360"
                     controls={false}

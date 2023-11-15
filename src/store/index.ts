@@ -1,15 +1,20 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 
-// import mainVideo from "../slices/media/slider"
-import user from "../slices/user/all-user";
-import slider from "../slices/media/slider";
-import mainVideo from "../slices/media/main-video";
+import user from "../services/store/slices/user/all-user";
+import slider from "../services/store/slices/media/slider";
+import mainVideo from "../services/store/slices/media/main-video";
+import partners from "../services/store/slices/partners/partners";
+import contact from "../services/store/slices/contact/constact";
+import about from "../services/store/slices/about/about"
 
 export const Store = configureStore({
     reducer: {
         user: user,
         slider:slider,
-        mainVideo:mainVideo
+        mainVideo:mainVideo,
+        partners:partners,
+        contact:contact,
+        about:about
     }
 })
 

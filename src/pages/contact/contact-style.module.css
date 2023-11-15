@@ -5,9 +5,9 @@
 
 .contact_container {
     display: flex;
-    width: 100%;
-    flex-direction: row;
-
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 100px
 }
 
 .location {
@@ -18,7 +18,7 @@
     align-items: center;
 }
 
-.location_icon{
+.location_icon {
     display: flex;
     background-color: #FFD400;
     border-radius: 100%;
@@ -26,7 +26,7 @@
     width: 56px;
     height: 50px;
     justify-content: center;
-    align-items: center ;
+    align-items: center;
 }
 
 .email {
@@ -41,4 +41,117 @@
     width: 510px;
     height: 110px;
     background-color: #FFD400;
+}
+
+.contact_block {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 10px;
+    margin-bottom: 18px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.contact_address {
+    display: flex;
+    background-color: white;
+    width: 20%;
+    height: 92px;
+    justify-content: space-evenly;
+    align-items: center
+}
+
+.address_icon {
+    width: 25px;
+    height: 35px
+}
+
+.address_text,
+.email_text,
+.phone_text {
+    text-align: start;
+}
+
+.email_block {
+    display: flex;
+    background-color: white;
+    width: 15%;
+    height: 92px;
+    justify-content: space-evenly;
+    align-items: center
+}
+
+.email_pic {
+    width: 25px;
+    height: 18px
+}
+
+.phone_container {
+    display: flex;
+    background-color: white;
+    width: 15%;
+    height: 92px;
+    justify-content: space-evenly;
+    align-items: center
+}
+
+.phone_pic {
+    width: 25px;
+    height: 35px
+}
+
+.contact_main_title {
+    color: #FFD400;
+    font-size: 30px !important;
+}
+
+.location_icon{
+    margin-left: 5px;
+}
+
+@media screen and (max-width: 1650px) {
+    .contact_title,
+    .contact_description {
+        font-size: 14px;
+    }
+
+}
+@media screen and (max-width: 1430px) {
+    .contact_address {
+        width: 25%;
+    }
+    .email_block {
+        width: 18%;
+    }
+    .phone_container {
+        width: 18%;
+    }
+    .address_icon,
+    .email_pic,
+    .phone_pic{
+        width: 15px !important;
+        height: 15px;
+    }
+    .location_icon{
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media screen and (max-width: 1110px) {
+    .contact_title,
+    .contact_description {
+        font-size: 12px;
+    }
+    .contact_address {
+        width: 28%;
+    }
+    .email_block {
+        width: 20%;
+    }
+    .phone_container {
+        width: 20%;
+    }
+
 }

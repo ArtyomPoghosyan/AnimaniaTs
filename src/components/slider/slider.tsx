@@ -3,12 +3,25 @@ import { EffectCoverflow, Pagination, Navigation } from 'swiper';
 import ReactPlayer from 'react-player';
 import { Url } from '../../services/base-url';
 import sliderStyle from "./slider.module.css"
+import { PlayerEnum } from '../../constant';
 
-export const Slider: React.FC<any> = (props: any) => {
-    const { datas,width,height } = props
+export interface ISlide {
+    // datas:{
+    createdAt?: string | undefined;
+    updatedAt?: string | undefined;
+    id?: number | undefined;
+    path?: string | undefined
+    // };
+    width?: number;
+    height?: number
+}
+
+export const Slider: React.FC<any> = (props) => {
+    const { data, width, height } = props;
+    console.log(data,"data55555555project")
     return (
         <div>
-            {datas ? <Swiper style={{ width: `${width}%`, height: `${height}px`, zIndex: "0" }}
+            {data ? <Swiper style={{ width: `${width}%`, height: `${height}px`, zIndex: "0" }}
                 effect={'coverflow'}
                 grabCursor={true}
                 centeredSlides={true}
@@ -26,14 +39,12 @@ export const Slider: React.FC<any> = (props: any) => {
                     prevEl: '.swiper-button-prev',
                 }}
                 modules={[EffectCoverflow, Pagination, Navigation]}
-                className="swiper_container"
-            >
-                {datas?.map((item: any) => {
-                    console.log(item.path.slice(-3))
+                className="swiper_container">
+                {data?.map((item: any) => {
                     return (
                         <SwiperSlide>
-                            {item.path.slice(-3) == "mp4" ?
-                                <div style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100%" }}>
+                            {item?.path.includes(PlayerEnum.MP4) ?
+                                <div className={sliderStyle.player_container}>
                                     <ReactPlayer
                                         muted={true}
                                         playing

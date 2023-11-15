@@ -1,132 +1,111 @@
 import { Outlet, useNavigate } from "react-router-dom";
-import animania_logo from "../../shared/images/animania_logo.png";
+import animania_logo from "../../assets/images/animania_logo.png";
 import { Menu } from 'antd';
-import LayoutStyle from '../../components/layout/layout.module.css';
+import layoutStyle from "./layout.module.css";
 import { HashLink as Link } from "react-router-hash-link";
-import { useState } from "react";
-import lang from "../../shared/images/lang.png";
-import telegram from "../../shared/images/telegram.png";
+import { useEffect, useState } from "react";
+import lang from "../../assets/images/lang.png";
 import { DownOutlined } from '@ant-design/icons';
-import { Dropdown, Space, Typography } from 'antd';
+import { Dropdown } from 'antd';
+import i18next, { t } from "i18next";
+import i18n from "../../i18n";
+import { Footer } from "antd/es/layout/layout";
+import { Main } from "../../pages/main";
 
-export const Layout:React.FC = () => {
+
+export const Layout: React.FC = () => {
 
     const navigate = useNavigate();
     const [color, setcolor] = useState(false);
-    const changeColor = () => {
+    const [currentLang, setCurrentLang] = useState<any>(localStorage.getItem("lang"));
+    const [language, setLanguage] = useState<string>(localStorage.getItem('lang') || 'en');
 
-        if (window.scrollY >= 90) {
-            setcolor(true)
-        }
-        else {
-            setcolor(false)
-        }
-    }
-    window.addEventListener("scroll", changeColor)
+    const handleMenuClick = (e: any) => {
+        setCurrentLang(e.key);
+        setLanguage(e.key);
+        i18next.changeLanguage(e.key);
+        i18next.reloadResources();
+        localStorage.setItem('lang', e.key);
+    };
 
-    const items = [
-        {
-            key: '1',
-            label: 'Arm',
-        },
-        {
-            key: '2',
-            label: 'Eng',
-        },
-        {
-            key: '3',
-            label: 'Rus',
-        },
-    ];
+    useEffect(() => {
+        const lang = localStorage.getItem('lang');
+        if (lang) {
+            i18n.changeLanguage(lang);
+        }
+    }, []);
+
+    useEffect(() => {
+        const changeColor = () => {
+            if (window.scrollY >= 90) {
+                setcolor(true)
+            } else {
+                setcolor(false)
+            }
+        };
+
+        window.addEventListener("scroll", changeColor);
+
+        return () => {
+            window.removeEventListener("scroll", changeColor);
+        };
+    }, []);
+
+
+    const menu = (
+        <Menu onClick={handleMenuClick}>
+            <Menu.Item key="hy">HY</Menu.Item>
+            <Menu.Item key="ru">RU</Menu.Item>
+            <Menu.Item key="en">ENG</Menu.Item>
+        </Menu>
+    );
 
     return (
-        <div style={{ zIndex: "999999999999" }}>
-            <Menu  mode="horizontal" theme="light" style={{
-                display: "flex", alignItems: "center", marginTop: "-4px", width: "100%", height: "90px",
-                justifyContent: "space-between", position: "fixed", zIndex: "1"
-            }}>
-                <div style={{ display: "flex", width: "90%", alignItems: "center", justifyContent: "space-between" }}>
-                    <Link smooth to="#main_video" className={LayoutStyle.nav_links_font_size}>
-                        <img src={animania_logo} style={{ display: "flex", width: "200px" }} onClick={() => { navigate("/") }} alt="logo" />
+
+        <div className={layoutStyle.menu_container}>
+            <Menu className={`${layoutStyle.link_container} ${color ? layoutStyle.navbar_color : layoutStyle.nvbar_non_color} ${layoutStyle.menu}`}>
+
+                <div className={layoutStyle.main_container}>
+                    <div  className={layoutStyle.nav_links_font_size}>
+                    <Link smooth to="#main_video">
+                        <img src={animania_logo} className={layoutStyle.logo} onClick={() => { navigate("/") }} alt="logo" />
                     </Link>
-                    <div style={{ display: "flex", marginLeft: "150px", width: "78%" }}>
-                        <Menu.Item>
-                            <Link smooth to="#about" className={LayoutStyle.nav_links_font_size}>AP</Link>
+                    </div>
+                    <div className={layoutStyle.menu_item_container}>
+                        <Menu.Item className={layoutStyle.nav_item}>
+                            <Link smooth to="#about" className={layoutStyle.nav_links_font_size}>AP</Link>
                         </Menu.Item>
 
-                        <Menu.Item>
-                            <Link to="#project" smooth className={LayoutStyle.nav_links_font_size}>Projects</Link>
+                        <Menu.Item className={layoutStyle.nav_item}>
+                            <Link to="#project" smooth className={layoutStyle.nav_links_font_size}>{t("COMMON.PROJECTS")}</Link>
                         </Menu.Item>
 
-                        <Menu.Item >
-                            <Link to="#team" smooth className={LayoutStyle.nav_links_font_size}>Team</Link>
+                        <Menu.Item className={layoutStyle.nav_item}>
+                            <Link to="#partners" smooth className={layoutStyle.nav_links_font_size}>{t("COMMON.PARTNER")}</Link>
                         </Menu.Item>
 
-                        <Menu.Item >
-                            <Link to="#partners" smooth className={LayoutStyle.nav_links_font_size}>Partners</Link>
+                        <Menu.Item className={layoutStyle.nav_item}>
+                            <Link to="#support" smooth className={layoutStyle.nav_links_font_size}>{t("COMMON.SUPPORT")}</Link>
                         </Menu.Item>
 
-                        <Menu.Item >
-                            <Link to="#contact" smooth className={LayoutStyle.nav_links_font_size}>Contact</Link>
+                        <Menu.Item className={layoutStyle.nav_item}>
+                            <Link to="#contact" smooth className={layoutStyle.nav_links_font_size}>{t("COMMON.CONTACT")}</Link>
                         </Menu.Item>
                     </div>
                 </div>
-                <div className={LayoutStyle.nav_links_font_size}>
-
-                    <div>
-                        <Dropdown
-                            menu={{
-                                items,
-                                selectable: true,
-                                defaultSelectedKeys: ['3'],
-                            }}>
-                            <Typography.Link>
-                                <Space>
-                                    <img src={lang} />
-                                    <DownOutlined />
-                                </Space>
-                            </Typography.Link>
+                <div className={layoutStyle.nav_links_font_size}>
+                    <div className={layoutStyle.language_container}>
+                        <Dropdown overlay={menu} trigger={['click']}>
+                            <a className={layoutStyle.lang_container} onClick={(e) => handleMenuClick(e)}>
+                                <img className={layoutStyle.lang_icon} src={lang} /><DownOutlined />
+                            </a>
                         </Dropdown>
                     </div>
                 </div>
             </Menu >
-            <div className={LayoutStyle.outlet_container}>
-                <Outlet />
+            <div className={layoutStyle.outlet_container}>
+               <Main/>
             </div>
-            <footer className={LayoutStyle.footer}>
-                <div className={LayoutStyle.footer_container}>
-                    <div className={LayoutStyle.logo}>
-                        <img src={animania_logo} style={{
-                            display: "flex", width: "392px;",
-                            height: "100px", justifyContent: "center", alignItems: "center",
-                        }} />
-                    </div>
-
-                    <div className={LayoutStyle.categories}>
-                        <h4>Categories</h4>
-                        <ul>
-                            <li>Game</li>
-                            <li>Film</li>
-                            <li>Animation</li>
-                            <li>Modeling</li>
-                        </ul>
-                    </div>
-
-                    <div className={LayoutStyle.social_pages}>
-                        <h4>Social Pages</h4>
-                        <div className={LayoutStyle.social_page_links} >
-                            {/* <a href="https://www.facebook.com/AnimaniaStudioss" target={"_blank"}><img src={fb} style={{ width: "20px" }} /></a>
-                            <a href="https://www.instagram.com/animania__studio/" target={"_blank"}><img src={instagram} style={{ width: "20px" }} /></a> */}
-                            <img src={telegram} style={{ width: "20px", height: "20px" }} />
-                        </div>
-                    </div>
-                </div>
-
-                <div className={LayoutStyle.by_PADC}>
-                    <p>All Rights reserved by PADC LLC</p>
-                </div>
-
-            </footer>
         </div >
     )
 }
