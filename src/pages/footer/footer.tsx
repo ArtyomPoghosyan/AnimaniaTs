@@ -1,39 +1,41 @@
 import { t } from "i18next";
 import animania_logo from "../../assets/images/animania_logo.png";
-import layoutStyle from "../../components/layout/layout.module.css";
+import footerStyle from "./footer.module.css"
 import fb from "../../assets/images/fb.png";
 import instagram from "../../assets/images/instagram.png";
-import telegram from "../../assets/images/telegram.png";
+import tiktok from "../../assets/images/tik-tok.png"
+import linkdIn from "../../assets/images/linkedin.png"
 
 export const Footer:React.FC = () => {
 
     return (
-        <footer className={layoutStyle.footer}>
-            <div className={layoutStyle.footer_container}>
-                <div className={layoutStyle.logo}>
-                    <img className={layoutStyle.footer_logo} src={animania_logo} />
+        <footer className={footerStyle.footer}>
+            <div className={footerStyle.footer_container}>
+                <div className={footerStyle.logo}>
+                    <img  src={animania_logo} />
                 </div>
-                <div className={layoutStyle.categories}>
+                <div className={footerStyle.categories}>
                     <h4>{t("COMMON.CATEGORIES")}</h4>
                     <ul>
-                        <li>{t("COMMON.GAME")}</li>
-                        <li>{t("COMMON.FILM")}</li>
-                        <li>{t("COMMON.ANIMATION")}</li>
-                        <li>{t("COMMON.MODELING")}</li>
+                        <li className={footerStyle.categories_item}>{t("COMMON.GAME")}</li>
+                        <li className={footerStyle.categories_item}>{t("COMMON.FILM")}</li>
+                        <li className={footerStyle.categories_item}>{t("COMMON.ANIMATION")}</li>
+                        <li className={footerStyle.categories_item}>{t("COMMON.MODELING")}</li>
                     </ul>
                 </div>
 
-                <div className={layoutStyle.social_pages}>
+                <div className={footerStyle.social_pages}>
                     <h4>{t("COMMON.SOCIAL_PAGES")}</h4>
-                    <div className={layoutStyle.social_page_links} >
-                        <a href="https://www.facebook.com/AnimaniaStudioss" target={"_blank"}><img src={fb} style={{ width: "20px" }} /></a>
-                        <a href="https://www.instagram.com/animania__studio/" target={"_blank"}><img src={instagram} style={{ width: "20px" }} /></a>
-                        <img src={telegram} style={{ width: "20px", height: "20px" }} />
+                    <div className={footerStyle.social_page_links} >
+                        <a href="https://www.facebook.com/AnimaniaStudioss" target={"_blank"}><img src={fb} className={footerStyle.social_icon}  /></a>
+                        <a href="https://www.instagram.com/animania__studio" target={"_blank"}><img src={instagram} className={footerStyle.social_icon}/></a>
+                        <a href="https://www.tiktok.com/@animaniastudio?_t=8hPRsGSpz86&_r=1" target={"_blank"}><img src={tiktok} className={footerStyle.social_icon}/></a>
+                        <a href="https://www.linkedin.com/company/animania-studio" target={"_blank"}><img src={linkdIn} className={footerStyle.social_icon}/></a>
                     </div>
                 </div>
             </div>
 
-            <div className={layoutStyle.by_PADC}>
+            <div className={footerStyle.created_by_PADC}>
                 <p>{t("COMMON.CREATED_BY")}</p>
             </div>
         </footer>

@@ -1,18 +1,16 @@
 import { AnyAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { isAxiosError } from "axios"
-import { getPartners } from "../../.."
+import { IPartnersState } from "../../../models/partners/partners";
+import { getPartners } from "../../../services";
 
 
-const initialState: any = {
+const initialState: IPartnersState = {
     isLoading: false,
     isSuccess: false,
     data: [],
     error: null
 }
 
-export const Partners = () => {
-
-}
 export const partnersThunk = createAsyncThunk(
     "getPartners",
     async (_,{rejectWithValue}) => {
@@ -32,14 +30,14 @@ const partnersSlice = createSlice({
     initialState,
     reducers:{},
     extraReducers(builder) {
-        builder.addCase(partnersThunk.pending,(state:any) => {
+        builder.addCase(partnersThunk.pending,(state:IPartnersState) => {
             state.isLoading= true
         })
-        builder.addCase(partnersThunk.fulfilled,(state:any,action:AnyAction) => {
+        builder.addCase(partnersThunk.fulfilled,(state:IPartnersState,action:AnyAction) => {
             state.isLoading= false;
             state.data= action?.payload
         })
-        builder.addCase(partnersThunk.rejected,(state:any,action:AnyAction) => {
+        builder.addCase(partnersThunk.rejected,(state:IPartnersState,action:AnyAction) => {
             state.error = action?.payload
         })
     },

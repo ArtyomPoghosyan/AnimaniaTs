@@ -29,52 +29,10 @@
 
 .lang_icon {
     margin-right: 5px;
+    width: 30px;
 }
-
-.footer {
-    display: flex;
-    width: 100%;
-    height: 300px;
-    flex-direction: column;
-    background-color: #f3f3f3;
-    justify-content: center;
-    align-items: center;
-}
-
-.footer_container {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: 72%;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.categories ul li {
-    list-style: none;
-    align-items: center;
-}
-
-.categories ul {
-    display: contents;
-}
-
-.social_pages {
-    margin-top: -62px;
-}
-
-.by_PADC p {
-    font-size: 14px;
-    color: #716d6dc9;
-}
-
-.social_page_links {
-    display: flex;
-    justify-content: space-between;
-}
-
 .menu_container {
-    z-index: 99999;
+    /* z-index: 98; */
 }
 
 .menu {
@@ -87,6 +45,7 @@
     position: fixed;
     z-index: 1;
     margin-top: 80px;
+    z-index: 99;
 }
 
 .main_container {

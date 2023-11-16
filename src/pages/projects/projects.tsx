@@ -1,5 +1,5 @@
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import React, { useEffect, useState } from 'react';
 
 import { t } from 'i18next';
 import 'swiper/css';
@@ -9,23 +9,25 @@ import 'swiper/css/navigation';
 import { useAppDispatch } from '../../hooks';
 
 import { IState } from '../../models/common/common';
-import { sliderThunk } from '../../services/store/slices/media/slider';
+
 import { Slider } from '../../components/slider/slider';
 
 import projectStyle from "./project-style.module.css"
+import { projectSliderThunk } from '../../store';
+import { projectSliderHeigth, projectSliderWidth } from '../../helper/constant-variables/common';
 
 export const Projects: React.FC = () => {
-    const { data } = useSelector((state: IState) => state.slider);
+    const { data } = useSelector((state: IState) => state.project);
     const dispatch = useAppDispatch();
 
     useEffect(() => {
-        dispatch(sliderThunk())
+        dispatch(projectSliderThunk())
     }, []);
 
     return (
-        <div id="project">
+        <div className={projectStyle.project_container} id="project">
             <h1 className={projectStyle.title}>{t("COMMON.PROJECTS")}</h1>
-            <Slider data={data?.data} width={100} height={700} />
+            <Slider data={data?.data} width={projectSliderWidth} height={projectSliderHeigth} />
         </div>
     )
 }

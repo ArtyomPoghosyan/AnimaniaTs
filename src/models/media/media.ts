@@ -1,4 +1,4 @@
-export interface IInitialState { 
+export interface IMediaState { 
     isLoading: boolean,
     isSuccess: boolean,
     data: [],

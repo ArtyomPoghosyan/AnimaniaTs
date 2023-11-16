@@ -1,27 +1,18 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Pagination, Navigation } from 'swiper';
 import ReactPlayer from 'react-player';
-import { Url } from '../../services/base-url';
+
 import sliderStyle from "./slider.module.css"
-import { PlayerEnum } from '../../constant';
+import {  PlayerEnum } from '../../constant';
+import { Url } from '../../helper';
+import { ISlide, ISliderItem } from '@/models';
 
-export interface ISlide {
-    // datas:{
-    createdAt?: string | undefined;
-    updatedAt?: string | undefined;
-    id?: number | undefined;
-    path?: string | undefined
-    // };
-    width?: number;
-    height?: number
-}
-
-export const Slider: React.FC<any> = (props) => {
+export const Slider: React.FC<ISlide> = (props) => {
     const { data, width, height } = props;
-    console.log(data,"data55555555project")
+
     return (
-        <div>
-            {data ? <Swiper style={{ width: `${width}%`, height: `${height}px`, zIndex: "0" }}
+        <div className={sliderStyle.slider_container}>
+            {data ? <Swiper  style={{ width: `${width}%`, height: `${height}px` }}
                 effect={'coverflow'}
                 grabCursor={true}
                 centeredSlides={true}
@@ -40,10 +31,10 @@ export const Slider: React.FC<any> = (props) => {
                 }}
                 modules={[EffectCoverflow, Pagination, Navigation]}
                 className="swiper_container">
-                {data?.map((item: any) => {
+                {data?.map((item: ISliderItem) => {
                     return (
                         <SwiperSlide>
-                            {item?.path.includes(PlayerEnum.MP4) ?
+                            {item?.path && item?.path.includes(PlayerEnum.MP4) ?
                                 <div className={sliderStyle.player_container}>
                                     <ReactPlayer
                                         muted={true}
@@ -54,7 +45,7 @@ export const Slider: React.FC<any> = (props) => {
                                         controls={false}
                                     />
                                 </div>
-                                : <img className={sliderStyle.image} src={Url + `/${item?.path}`} />
+                                : <img className={sliderStyle.image} src={`${Url}/${item?.path}`} />
                             }
                         </SwiperSlide>
                     )

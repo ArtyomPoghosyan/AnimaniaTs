@@ -1,6 +1,6 @@
 {
     "COMMON": {
-        "USER": "Օգտատեր",
+        "AP":"AP",
         "PROJECTS": "Նախագծեր",
         "TEAM": "Թիմ",
         "PARTNER": "Գործընկեր",
@@ -17,7 +17,7 @@
         "ANIMATION": "Անիմացիա",
         "MODELING": "Մոդելավորում",
         "SOCIAL_PAGES": "Սոցիալական էջեր",
-        "SEND_US_EMAIL":"ՈՒՂԱՐԿԵԼ Նամակ",
+        "SEND_US_EMAIL":"Ուղարկել Նամակ",
         "YOUR_NAME":"Ձեր անունը",
         "YOUR_EMAIL":"Ձեր էլ․Հասցեն",
         "YOUR_PHONE":"Ձեր Հեռախոսը",

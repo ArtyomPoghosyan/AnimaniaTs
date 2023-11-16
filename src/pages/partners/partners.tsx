@@ -4,8 +4,9 @@ import { useAppDispatch } from "../../hooks";
 import { useSelector } from "react-redux";
 import { IPartnert, IState } from "../../models/common/common";
 import { useEffect } from "react";
-import { partnersThunk } from "../../services/store/slices/partners";
-import { Url } from "../../services/base-url";
+
+import { Url } from "../../helper/url/base-url";
+import { partnersThunk } from "../../store";
 
 export const Partners:React.FC = () => {
     const { data } = useSelector((state: IState) => state.partners);
@@ -15,14 +16,13 @@ export const Partners:React.FC = () => {
         dispatch(partnersThunk())
     }, []);
 
-
     return (
         <div className={partnersStyle.partners_container} id="partners">
             <h2 className={partnersStyle.partner_title}>{t("COMMON.OUR_PARTNER")}</h2>
             <div className={partnersStyle.image_container}>
                 {
                     data?.data?.map((item:IPartnert) =>(
-                        <img src={Url + `/${item?.path}`}/>
+                        <img src={`${Url}/${item?.path}`}/>
                     ))
                 }
             </div>

@@ -9,3 +9,9 @@
     align-items: center;
     width: 100%
 }
+
+.slider_container {
+    z-index: 0;
+    display:flex;
+    text-align:center
+}

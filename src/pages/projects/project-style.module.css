@@ -1,3 +1,6 @@
+.project_container{
+    margin-top: 60px;
+}
 .image{
    width: 80%;
    height: 100%;
@@ -10,4 +13,5 @@ video {
 .title {
     color: #FFD400;
     font-size: 30px;
+    text-align: center;
 }

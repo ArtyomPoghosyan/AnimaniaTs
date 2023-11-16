@@ -17,10 +17,22 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx"
+    // "noEmit": true,
+    "jsx": "react-jsx",
+
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@assets/*": ["src/assets/*"],
+      "@pages/*":["src/pages/*"],
+      "@service/*":["src/service/*"],
+      "@models/*":["src/models/*"],
+      "@helper/*":["src/helper/*"],
+    }
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src","types"]
 }

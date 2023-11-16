@@ -1,9 +1,8 @@
 import { AnyAction } from '@reduxjs/toolkit';
 
 export interface IState {
-    user: AnyAction,
-    mainVideo:AnyAction,
-    slider:AnyAction,
+    media:AnyAction,
+    project:AnyAction,
     partners:AnyAction,
     about:AnyAction
 } 
@@ -38,4 +37,21 @@ export interface IAbout {
     isSuccess: boolean,
     data: [],
     error: null
+}
+
+export interface ISlide {
+    data: []
+    createdAt?: string | undefined;
+    updatedAt?: string | undefined;
+    id?: number | undefined;
+    path?: string | undefined
+    width: number;
+    height: number
+}
+
+export interface ISliderItem {
+    createdAt: string;
+    updatedAt: string;
+    id: number;
+    path: string
 }

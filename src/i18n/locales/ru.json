@@ -1,6 +1,6 @@
 {
     "COMMON": {
-        "USER": "Пользователь",
+        "AP":"AP",
         "PROJECTS": "Проекты",
         "TEAM": "Команда",
         "PARTNER": "Партнер",
@@ -17,7 +17,7 @@
         "ANIMATION": "Анимация",
         "MODELING": "Моделирование",
         "SOCIAL_PAGES": "Соц. страницы",
-        "SEND_US_EMAIL":"OТПРАВИТЬ НАМ ПИСЬМО",
+        "SEND_US_EMAIL":"Отправить нам письмо",
         "YOUR_NAME":"Ваше имя",
         "YOUR_EMAIL":"Ваш эл. адрес",
         "YOUR_PHONE":"Ваш телефон",
