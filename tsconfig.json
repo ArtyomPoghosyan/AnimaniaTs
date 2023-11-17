@@ -19,20 +19,17 @@
     "isolatedModules": true,
     // "noEmit": true,
     "jsx": "react-jsx",
-
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-
-    "baseUrl": ".",
+    "baseUrl": "./src",
     "paths": {
-      "@/*": ["src/*"],
-      "@components/*": ["src/components/*"],
-      "@assets/*": ["src/assets/*"],
-      "@pages/*":["src/pages/*"],
-      "@service/*":["src/service/*"],
-      "@models/*":["src/models/*"],
-      "@helper/*":["src/helper/*"],
-      "@constant/*":["src/constant/*"],
+      "@helpers/*":["helpers/*"],
+      "@components/*": ["components/*"],
+      "@assets/*": ["assets/*"],
+      "@pages/*":["pages/*"],
+      "@services/*":["services/*"],
+      "@models/*":["models/*"],
+      "@constant/*":["constant/*"],
     }
   },
   "include": ["src","types"]

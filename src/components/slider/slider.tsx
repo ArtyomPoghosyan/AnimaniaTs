@@ -2,10 +2,11 @@ import ReactPlayer from 'react-player';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Pagination, Navigation } from 'swiper';
 
-import sliderStyle from "./slider.module.css"
+import { Url } from '../../helpers/index';
+import { ISlide, ISliderItem } from '@models/index';
+
 import {  PlayerEnum } from '../../constant';
-import { Url } from '../../helpers';
-import { ISlide, ISliderItem } from '@/models';
+import sliderStyle from "./slider.module.css"
 
 export const Slider: React.FC<ISlide> = (props) => {
     const { data, width, height } = props;

@@ -3,7 +3,7 @@ import { AnyAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { isAxiosError } from "axios";
 // import { IMediaState } from "../../../models/media/media";
 import { mainVideo } from "../../../services";
-import { IMediaState } from "@/models";
+import { IMediaState } from "@models/index";
 
 
 const initialState: IMediaState = {

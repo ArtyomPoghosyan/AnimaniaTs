@@ -1,10 +1,12 @@
 import { t } from "i18next";
-import animania_logo from "../../assets/images/animania_logo.png";
-import footerStyle from "./footer.module.css"
+
 import fb from "../../assets/images/fb.png";
+import tiktok from "../../assets/images/tik-tok.png";
+import linkdIn from "../../assets/images/linkedin.png";
 import instagram from "../../assets/images/instagram.png";
-import tiktok from "../../assets/images/tik-tok.png"
-import linkdIn from "../../assets/images/linkedin.png"
+import animania_logo from "../../assets/images/animania_logo.png";
+
+import footerStyle from "./footer.module.css";
 
 export const Footer:React.FC = () => {
 

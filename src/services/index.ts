@@ -1,4 +1,4 @@
-import { IFormData } from '@/models';
+import { IFormData } from '@models/index';
 import axios from 'axios';
 
 const { REACT_APP_BASE_URL } = process.env;

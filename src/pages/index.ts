@@ -1,0 +1,7 @@
+export * from "./about"
+export * from "./carousel-slider/carousel"
+export * from "./contact"
+export * from "./footer"
+export * from "./contact-form"
+export * from "./partners"
+export * from "./projects"

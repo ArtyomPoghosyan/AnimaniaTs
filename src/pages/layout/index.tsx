@@ -1,19 +1,23 @@
-import { useNavigate } from "react-router-dom";
-import animania_logo from "../../assets/images/animania_logo.png";
-import { Menu } from 'antd';
-import layoutStyle from "./layout.module.css";
-import { HashLink as Link } from "react-router-hash-link";
 import { useEffect, useState } from "react";
-import { DownOutlined } from '@ant-design/icons';
-import { Dropdown } from 'antd';
-import i18next, { t } from "i18next";
+import { useNavigate } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
+
+import { Menu } from 'antd';
 import i18n from "../../i18n";
 import { Main } from "../main";
+import { Dropdown } from 'antd';
+import i18next, { t } from "i18next";
+import { DownOutlined } from '@ant-design/icons';
+
 import { LanguageEnum } from "../../constant";
+import { scrollHeightNumber } from "../../helpers/constant-variables/common";
+
 import arm_lang from "../../assets/images/arm_flag.png"
 import rus_lang from "../../assets/images/rus_flag.png"
 import eng_lang from "../../assets/images/eng_flag.png"
-import { scrollHeightNumber } from "../../helpers/constant-variables/common";
+import animania_logo from "../../assets/images/animania_logo.png";
+
+import layoutStyle from "./layout.module.css";
 
 export const Layout: React.FC = () => {
     const navigate = useNavigate();

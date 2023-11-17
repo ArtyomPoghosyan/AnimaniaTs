@@ -77,17 +77,6 @@ export interface IPartnersState {
     error: null
 }
 
-// export interface ISlide {
-//     data:{
-//         path?: string | undefined
-//     }
-//     createdAt?: string | undefined;
-//     updatedAt?: string | undefined;
-//     id?: number | undefined;
-//     width?: number;
-//     height?: number
-// }
-
 export interface IProjectState {
     isLoading: boolean,
     isSuccess: boolean,

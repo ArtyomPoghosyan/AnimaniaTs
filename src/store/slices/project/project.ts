@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { projects } from '../../../services';
 import { isAxiosError } from 'axios';
-import { IProjectState } from '@/models';
+import { IProjectState } from '@models/index';
 
 const initialState: IProjectState = {
     isLoading: false,

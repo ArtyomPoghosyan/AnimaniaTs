@@ -4,13 +4,12 @@ import { useSelector } from "react-redux";
 import { t } from "i18next";
 import { useAppDispatch } from "../../hooks";
 
-import { IState } from "../../models/common/common";
-import { Slider } from "../../components/slider/slider";
-import aboutStyle from "../about/about-style.module.css"
-import Animania_text_name from "../../assets/images/Animania_production.png";
 import { aboutComponyThunk } from "../../store";
+import { Slider } from "../../components/slider/slider";
+import { IState } from "../../models/common/common";
 import { aboutSliderHeight, aboutSliderWidth } from "../../helpers/constant-variables/common";
-
+import Animania_text_name from "../../assets/images/Animania_production.png";
+import aboutStyle from "../about/about-style.module.css"
 
 export const About: React.FC = () => {
     const { data } = useSelector((state: IState) => state.about);

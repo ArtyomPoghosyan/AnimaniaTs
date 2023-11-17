@@ -1,8 +1,10 @@
-import contactStyle from "../contact/contact-style.module.css";
-import LocationVector from "../../assets/images/Location_vector.png";
+import { t } from "i18next";
+
 import EmailVector from "../../assets/images/Email.png";
 import PhoneVector from "../../assets/images/phone.png";
-import { t } from "i18next";
+import LocationVector from "../../assets/images/Location_vector.png";
+
+import contactStyle from "../contact/contact-style.module.css";
 
 export const Contact:React.FC = () => {
 

@@ -2,7 +2,7 @@ import { AnyAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { isAxiosError } from "axios"
 // import { IPartnersState } from "../../../models/partners/partners";
 import { getPartners } from "../../../services";
-import { IPartnersState } from "@/models";
+import { IPartnersState } from "@models/index";
 
 
 const initialState: IPartnersState = {

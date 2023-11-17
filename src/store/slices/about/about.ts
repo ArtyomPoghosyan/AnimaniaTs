@@ -2,7 +2,7 @@ import { AnyAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { isAxiosError } from "axios";
 
 import { getAbout } from "../../../services";
-import { IAboutState } from "@/models";
+import { IAboutState } from "@models/index";
 // import { IAboutState } from "../../../models/common/common";
 
 const initialState: IAboutState = {

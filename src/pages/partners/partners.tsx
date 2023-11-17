@@ -1,12 +1,14 @@
-import partnersStyle from "../partners/partners-style.module.css";
-import { t } from "i18next";
-import { useAppDispatch } from "../../hooks";
-import { useSelector } from "react-redux";
-import {  IPartnert, IState } from "../../models/common/common";
 import { useEffect } from "react";
+import { useSelector } from "react-redux";
+
+import { t } from "i18next";
+import { partnersThunk } from "../../store";
+import { useAppDispatch } from "../../hooks";
+import {  IPartnert, IState } from "../../models/common/common";
 
 import { Url } from "../../helpers/url/base-url";
-import { partnersThunk } from "../../store";
+
+import partnersStyle from "../partners/partners-style.module.css";
 
 export const Partners:React.FC = () => {
     const { data } = useSelector((state: IState) => state.partners) ;

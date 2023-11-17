@@ -1,16 +1,17 @@
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import formStyle from "./form.module.css"
 
 import { t } from 'i18next';
 import { Button } from 'antd';
-import { supportFormValidation } from '../../helpers/validation/form-validation';
-import { useAppDispatch, useAppSelector } from '../../hooks';
 
+import { useAppDispatch, useAppSelector } from '../../hooks';
 import SuccessMessage from '../../helpers/alert/alert-message';
-import { IFormData } from '../../models/common/common';
+import { supportFormValidation } from '../../helpers/validation/form-validation';
 import { handleContactState, sendMessageThunk } from '../../store';
+
 import { FormEnum } from '../../constant/enums/index';
+import { IFormData } from '../../models/common/common';
+import formStyle from "./form.module.css"
 
 export const FormComponent = () => {
     const dispatch = useAppDispatch();
