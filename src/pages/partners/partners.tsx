@@ -2,14 +2,14 @@ import partnersStyle from "../partners/partners-style.module.css";
 import { t } from "i18next";
 import { useAppDispatch } from "../../hooks";
 import { useSelector } from "react-redux";
-import { IPartnert, IState } from "../../models/common/common";
+import {  IPartnert, IState } from "../../models/common/common";
 import { useEffect } from "react";
 
-import { Url } from "../../helper/url/base-url";
+import { Url } from "../../helpers/url/base-url";
 import { partnersThunk } from "../../store";
 
 export const Partners:React.FC = () => {
-    const { data } = useSelector((state: IState) => state.partners);
+    const { data } = useSelector((state: IState) => state.partners) ;
     const dispatch = useAppDispatch();
     
     useEffect(() => {

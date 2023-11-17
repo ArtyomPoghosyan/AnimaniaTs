@@ -32,7 +32,7 @@ export interface IContent {
     content:string
 }
 
-export interface IAbout {
+export interface IAboutState {
     isLoading: boolean,
     isSuccess: boolean,
     data: [],
@@ -54,4 +54,43 @@ export interface ISliderItem {
     updatedAt: string;
     id: number;
     path: string
+}
+
+export interface IMediaState { 
+    isLoading: boolean,
+    isSuccess: boolean,
+    data: [],
+    error:null
+}
+
+export interface IVideo {
+    createdAt:string,
+    id:number,
+    path:string,
+    updatedAt:string
+}
+
+export interface IPartnersState {
+    isLoading: boolean,
+    isSuccess: boolean,
+    data: [],
+    error: null
+}
+
+// export interface ISlide {
+//     data:{
+//         path?: string | undefined
+//     }
+//     createdAt?: string | undefined;
+//     updatedAt?: string | undefined;
+//     id?: number | undefined;
+//     width?: number;
+//     height?: number
+// }
+
+export interface IProjectState {
+    isLoading: boolean,
+    isSuccess: boolean,
+    data: [],
+    error: null
 }

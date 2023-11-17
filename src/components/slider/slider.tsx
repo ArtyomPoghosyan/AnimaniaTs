@@ -1,10 +1,10 @@
+import ReactPlayer from 'react-player';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Pagination, Navigation } from 'swiper';
-import ReactPlayer from 'react-player';
 
 import sliderStyle from "./slider.module.css"
 import {  PlayerEnum } from '../../constant';
-import { Url } from '../../helper';
+import { Url } from '../../helpers';
 import { ISlide, ISliderItem } from '@/models';
 
 export const Slider: React.FC<ISlide> = (props) => {
@@ -12,7 +12,7 @@ export const Slider: React.FC<ISlide> = (props) => {
 
     return (
         <div className={sliderStyle.slider_container}>
-            {data ? <Swiper  style={{ width: `${width}%`, height: `${height}px` }}
+            {data && data ? <Swiper style={{ width: `${width}%`, height: `${height}px` }}
                 effect={'coverflow'}
                 grabCursor={true}
                 centeredSlides={true}
@@ -34,7 +34,7 @@ export const Slider: React.FC<ISlide> = (props) => {
                 {data?.map((item: ISliderItem) => {
                     return (
                         <SwiperSlide>
-                            {item?.path && item?.path.includes(PlayerEnum.MP4) ?
+                            {item?.path && item?.path?.includes(PlayerEnum.MP4) ?
                                 <div className={sliderStyle.player_container}>
                                     <ReactPlayer
                                         muted={true}

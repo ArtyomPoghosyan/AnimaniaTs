@@ -32,6 +32,7 @@
       "@service/*":["src/service/*"],
       "@models/*":["src/models/*"],
       "@helper/*":["src/helper/*"],
+      "@constant/*":["src/constant/*"],
     }
   },
   "include": ["src","types"]

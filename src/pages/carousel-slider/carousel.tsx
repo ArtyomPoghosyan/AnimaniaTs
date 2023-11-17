@@ -6,13 +6,13 @@ import 'react-slideshow-image/dist/styles.css';
 import { useAppDispatch, } from '../../hooks';
 import { IState } from '../../models/common/common';
 
-import { Url } from '../../helper/url/base-url';
+import { Url } from '../../helpers/url/base-url';
 
 import ReactPlayer from 'react-player';
 import { mainVideoThunk } from '../../store';
 
 export const CarouselSlider: React.FC = () => {
-    const { data } = useSelector((state: IState) => state.media);
+    const { data }  = useSelector((state: IState) => state.media) ;
     const dispatch = useAppDispatch();
 
     useEffect(() => {

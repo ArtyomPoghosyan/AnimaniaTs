@@ -8,12 +8,12 @@ import { DownOutlined } from '@ant-design/icons';
 import { Dropdown } from 'antd';
 import i18next, { t } from "i18next";
 import i18n from "../../i18n";
-import { Main } from "../../pages/main";
+import { Main } from "../main";
 import { LanguageEnum } from "../../constant";
 import arm_lang from "../../assets/images/arm_flag.png"
 import rus_lang from "../../assets/images/rus_flag.png"
 import eng_lang from "../../assets/images/eng_flag.png"
-import { scrollHeightNumber } from "../../helper/constant-variables/common";
+import { scrollHeightNumber } from "../../helpers/constant-variables/common";
 
 export const Layout: React.FC = () => {
     const navigate = useNavigate();

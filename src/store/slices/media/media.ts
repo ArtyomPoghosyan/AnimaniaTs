@@ -1,8 +1,9 @@
 import { AnyAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 import { isAxiosError } from "axios";
-import { IMediaState } from "../../../models/media/media";
+// import { IMediaState } from "../../../models/media/media";
 import { mainVideo } from "../../../services";
+import { IMediaState } from "@/models";
 
 
 const initialState: IMediaState = {
@@ -20,7 +21,7 @@ export const mainVideoThunk = createAsyncThunk(
             return Promise.resolve(response?.data)
         } catch (err: unknown) {
             if (isAxiosError(err)) {
-                return rejectWithValue(err.response?.data.message)
+                return rejectWithValue(err.response?.data?.message)
             }
         }
     }

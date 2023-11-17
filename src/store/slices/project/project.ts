@@ -1,9 +1,9 @@
 import { AnyAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { IProjectState } from '../../../models/project/project';
 import { projects } from '../../../services';
 import { isAxiosError } from 'axios';
+import { IProjectState } from '@/models';
 
 const initialState: IProjectState = {
     isLoading: false,
@@ -17,10 +17,10 @@ export const projectSliderThunk = createAsyncThunk(
     async (_,{rejectWithValue}) => {
         try {
             const response = await projects();
-            return Promise.resolve(response.data)
+            return Promise.resolve(response?.data)
         }catch (err: unknown) {
             if (isAxiosError(err)) {
-                return rejectWithValue(err.response?.data.message)
+                return rejectWithValue(err.response?.data?.message)
             }
         }
     }

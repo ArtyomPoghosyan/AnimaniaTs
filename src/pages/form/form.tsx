@@ -4,19 +4,13 @@ import formStyle from "./form.module.css"
 
 import { t } from 'i18next';
 import { Button } from 'antd';
-import { supportFormValidation } from '../../components/validation/form-validation';
+import { supportFormValidation } from '../../helpers/validation/form-validation';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 
-import SuccessMessage from '../../helper/alert/alert-message';
+import SuccessMessage from '../../helpers/alert/alert-message';
 import { IFormData } from '../../models/common/common';
 import { handleContactState, sendMessageThunk } from '../../store';
-
-export enum FormEnum {
-    REQUIRED = "required",
-    MINLENGTH = "minLength",
-    PATTERN = "pattern",
-    SUBMIT = "submit"
-}
+import { FormEnum } from '../../constant/enums/index';
 
 export const FormComponent = () => {
     const dispatch = useAppDispatch();

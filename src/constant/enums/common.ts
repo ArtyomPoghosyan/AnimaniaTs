@@ -11,3 +11,10 @@ export enum PlayerEnum {
     MP4 = "mp4"
 }
 
+export enum FormEnum {
+    REQUIRED = "required",
+    MINLENGTH = "minLength",
+    PATTERN = "pattern",
+    SUBMIT = "submit"
+}
+

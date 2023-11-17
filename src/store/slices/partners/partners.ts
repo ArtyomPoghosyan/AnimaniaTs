@@ -1,7 +1,8 @@
 import { AnyAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { isAxiosError } from "axios"
-import { IPartnersState } from "../../../models/partners/partners";
+// import { IPartnersState } from "../../../models/partners/partners";
 import { getPartners } from "../../../services";
+import { IPartnersState } from "@/models";
 
 
 const initialState: IPartnersState = {
@@ -19,7 +20,7 @@ export const partnersThunk = createAsyncThunk(
            return response?.data
         } catch (err: unknown) {
             if (isAxiosError(err)) {
-                return rejectWithValue(err.response?.data.message)
+                return rejectWithValue(err.response?.data?.message)
             }
         }
     }

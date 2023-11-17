@@ -8,16 +8,16 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { useAppDispatch } from '../../hooks';
 
-import { IState } from '../../models/common/common';
+import {  IState } from '../../models/common/common';
 
 import { Slider } from '../../components/slider/slider';
 
 import projectStyle from "./project-style.module.css"
 import { projectSliderThunk } from '../../store';
-import { projectSliderHeigth, projectSliderWidth } from '../../helper/constant-variables/common';
+import { projectSliderHeigth, projectSliderWidth } from '../../helpers/constant-variables/common';
 
 export const Projects: React.FC = () => {
-    const { data } = useSelector((state: IState) => state.project);
+    const { data } = useSelector((state: IState) => state.project) ;
     const dispatch = useAppDispatch();
 
     useEffect(() => {

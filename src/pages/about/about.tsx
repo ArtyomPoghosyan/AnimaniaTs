@@ -9,7 +9,7 @@ import { Slider } from "../../components/slider/slider";
 import aboutStyle from "../about/about-style.module.css"
 import Animania_text_name from "../../assets/images/Animania_production.png";
 import { aboutComponyThunk } from "../../store";
-import { aboutSliderHeight, aboutSliderWidth } from "../../helper/constant-variables/common";
+import { aboutSliderHeight, aboutSliderWidth } from "../../helpers/constant-variables/common";
 
 
 export const About: React.FC = () => {
